@@ -7,17 +7,29 @@
 </head>
 <body>
 
-  <h1>Gira la ruleta y gana un descuento</h1>
+  <!-- Marca de agua -->
+  <div class="watermark-bg"></div>
+
+  <h1>Haz clic en la ruleta y gana un descuento</h1>
 
   <div class="ruleta-container">
-    <div class="ruleta" id="ruleta">
-      <img src="logo.png" class="logo">
+    <div class="ruleta-wrapper">
+
+      <div class="ruleta" id="ruleta">
+        <img src="https://grupospazi.mx/wp-content/uploads/2024/03/grupo-spazi.svg" class="logo">
+        <div class="labels" id="labels"></div>
+      </div>
+
+      <div class="flecha-gota"></div>
+
     </div>
   </div>
 
-  <button onclick="girar()">Girar</button>
   <p id="resultado"></p>
+
+  <canvas id="confetti"></canvas>
 
   <script src="script.js"></script>
 </body>
 </html>
+
