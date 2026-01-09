@@ -1,0 +1,37 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f5f5f5;
+}
+
+.ruleta-container {
+  margin: 40px auto;
+}
+
+.ruleta {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #ff5252 0deg 60deg,
+    #ff9800 60deg 120deg,
+    #ffeb3b 120deg 180deg,
+    #4caf50 180deg 240deg,
+    #2196f3 240deg 300deg,
+    #9c27b0 300deg 360deg
+  );
+  margin: auto;
+  position: relative;
+  transition: transform 4s ease-out;
+}
+
+.logo {
+  width: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 50%;
+  padding: 10px;
+}
