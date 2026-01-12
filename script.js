@@ -71,8 +71,7 @@ window.addEventListener("resize", resizeCanvas);
 function lanzarConfetti() {
   const billetes = [];
   const rect = ruleta.getBoundingClientRect();
-  // const centroY = canvas.height / 2;
-  const centroY = rect.top + rect.height / 2;
+  const centroY = canvas.height / 2;
   let contador = 0;
   const total = 90;
 
@@ -122,4 +121,5 @@ function lanzarConfetti() {
 
   animar();
 }
+
 
