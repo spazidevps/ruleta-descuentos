@@ -1,3 +1,12 @@
+:root {
+  --ruleta-size: 700px;
+  --borde-size: 18px;
+  --logo-size: 120px;
+  --texto-size: 14px;
+}
+/*-------------------------------*/
+
+
 /*agrgado para mantener estable el body*/
 html, body {
   width: 100%;
@@ -50,8 +59,11 @@ h1 {
 
 /* RULETA */
 .ruleta {
-  width: 700px;
+  /* width: 700px;
   height: 700px;
+  border-radius: 50%; */
+  width: var(--ruleta-size);
+  height: var(--ruleta-size);
   border-radius: 50%;
   background: conic-gradient(
     #6ec6ff 0deg 45deg,
@@ -63,7 +75,7 @@ h1 {
     #7e57c2 270deg 315deg,
     #4064dd 315deg 360deg
   );
-  border: 18px solid white;
+  border: var(--borde-size) solid white; /* border: 18px solid white; */
   box-shadow: 0 16px 40px rgba(0,0,0,0.18);
   cursor: pointer;
   transition: transform 4s cubic-bezier(.17,.67,.23,1);
@@ -71,8 +83,11 @@ h1 {
 
 /* LOGO */
 .logo {
-  width: 120px;
-  height: 120px;
+  /* width: 120px;
+  height: 120px; */
+  width: var(--logo-size);
+  height: var(--logo-size);
+
   background: white;
   border-radius: 50%;
   padding: 20px;
@@ -96,7 +111,8 @@ h1 {
   left: 50%;
   top: 50%;
   transform-origin: 0% 0%;
-  font-size: 14px;
+  /* font-size: 14px; */
+  font-size: var(--texto-size);
   font-weight: bold;
   color: #333;
 }
@@ -128,4 +144,43 @@ canvas {
   z-index: 9999;
 }
 
+/*----------------------------------*/
+@media (max-width: 600px) {
+  :root {
+    --ruleta-size: 300px;
+    --borde-size: 10px;
+    --logo-size: 70px;
+    --texto-size: 10px;
+  }
 
+  h1 {
+    font-size: 18px;
+    padding: 0 16px;
+  }
+
+  #resultado {
+    font-size: 14px;
+    padding: 0 16px;
+  }
+
+  .ruleta-wrapper {
+    width: 100%;
+  }
+
+  .flecha-gota {
+    right: -28px;
+  }
+}
+/*-----------------------------------*/
+@media (min-width: 601px) and (max-width: 900px) {
+  :root {
+    --ruleta-size: 500px;
+    --borde-size: 14px;
+    --logo-size: 90px;
+    --texto-size: 12px;
+  }
+
+  .ruleta-wrapper {
+    width: 100%;
+  }
+}
