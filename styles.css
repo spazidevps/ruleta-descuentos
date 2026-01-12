@@ -120,8 +120,8 @@ h1 {
     #7e57c2 270deg 315deg,
     #4064dd 315deg 360deg
   );
-  border: 4vw solid white;
-  max-border-width: 18px;
+  border: clamp(6px, 1.5vw, 12px) solid white; /* border: 4vw solid white; */
+  /* max-border-width: 18px; */
   box-shadow: 0 16px 40px rgba(0,0,0,0.18);
   cursor: pointer;
   transition: transform 4s cubic-bezier(.17,.67,.23,1);
