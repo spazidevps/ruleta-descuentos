@@ -67,7 +67,7 @@ function crearLabels() {
   labels.innerHTML = "";
 
   const radio = ruleta.offsetWidth / 2;
-  const distanciaTexto = radio * 0.17;
+  const distanciaTexto = radio * 0.12;
 
   premios.forEach((texto, i) => {
     const label = document.createElement("div");
@@ -204,6 +204,7 @@ function disparar(lado) {
 
   animar();
 }
+
 
 
 
