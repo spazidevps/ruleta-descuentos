@@ -49,11 +49,20 @@ h1 {
 }
 
 /* CONTENEDOR */
-.ruleta-wrapper {
+/* .ruleta-wrapper {
   position: relative;
   width: 760px;
   margin: auto;
+} */
+
+.ruleta-wrapper {
+  position: relative;
+  width: 760px;
+  max-width: 100%;
+  margin: auto;
 }
+
+
 
 /* RULETA */
 .ruleta {
@@ -210,5 +219,15 @@ canvas {
   }
 }
 
+/*--------------------------------------------------------------------*/
+@media (max-width: 1024px) and (orientation: portrait) {
+  .ruleta-wrapper {
+    width: 100%;
+    max-width: 420px;
+  }
 
-
+  .ruleta {
+    width: 380px;
+    height: 380px;
+  }
+}
