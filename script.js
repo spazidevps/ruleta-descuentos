@@ -40,7 +40,9 @@ function crearLabels() {
   labels.innerHTML = "";
 
   const radio = ruleta.offsetWidth / 2;
-  const distanciaTexto = radio * 0.72;
+  // const distanciaTexto = radio * 0.72;
+  const distanciaTexto = radio * 0.20;
+
 
   premios.forEach((texto, i) => {
     const label = document.createElement("div");
@@ -153,6 +155,5 @@ function lanzarConfetti() {
 
   animar();
 }
-
 
 
