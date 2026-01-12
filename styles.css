@@ -51,11 +51,19 @@ h1 {
 }
 
 /* CONTENEDOR */
-.ruleta-wrapper {
+/* .ruleta-wrapper {
   position: relative;
   width: 760px;
   margin: auto;
+} */
+
+.ruleta-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: var(--ruleta-size);
+  margin: auto;
 }
+
 
 /* RULETA */
 .ruleta {
@@ -184,4 +192,3 @@ canvas {
     width: 100%;
   }
 }
-
