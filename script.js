@@ -21,20 +21,47 @@ const labels = document.getElementById("labels");
 const resultado = document.getElementById("resultado");
 
 /* CREAR TEXTOS CENTRADOS */
-premios.forEach((texto, i) => {
-  const label = document.createElement("div");
-  label.className = "label";
+// premios.forEach((texto, i) => {
+//   const label = document.createElement("div");
+//   label.className = "label";
 
-  const angulo = i * 45 + 22.5;
+//   const angulo = i * 45 + 22.5;
 
-  label.style.transform = `
-    rotate(${angulo}deg)
-    translate(80px, -8px)
-  `;
+//   label.style.transform = `
+//     rotate(${angulo}deg)
+//     translate(80px, -8px)
+//   `;
 
-  label.innerText = texto;
-  labels.appendChild(label);
-});
+//   label.innerText = texto;
+//   labels.appendChild(label);
+// });
+
+function crearLabels() {
+  labels.innerHTML = "";
+
+  const radio = ruleta.offsetWidth / 2;
+  const distanciaTexto = radio * 0.72;
+
+  premios.forEach((texto, i) => {
+    const label = document.createElement("div");
+    label.className = "label";
+
+    const angulo = i * 45 + 22.5;
+
+    label.style.transform = `
+      rotate(${angulo}deg)
+      translate(${distanciaTexto}px, -8px)
+    `;
+
+    label.innerText = texto;
+    labels.appendChild(label);
+  });
+}
+
+crearLabels();
+window.addEventListener("resize", crearLabels);
+
+
 
 /* GIRAR RULETA */
 ruleta.addEventListener("click", () => {
@@ -71,7 +98,8 @@ window.addEventListener("resize", resizeCanvas);
 function lanzarConfetti() {
   const billetes = [];
   const rect = ruleta.getBoundingClientRect();
-  const centroY = canvas.height / 2;
+  // const centroY = canvas.height / 2;
+  const centroY = rect.top + rect.height / 2;
   let contador = 0;
   const total = 90;
 
@@ -80,6 +108,7 @@ function lanzarConfetti() {
     const anguloBase = lado === "izq" ? 0 : Math.PI;
     const angulo = anguloBase + (Math.random() * 0.8 - 0.4);
     const velocidad = Math.random() * 9 + 7;
+    const escala = window.innerWidth < 600 ? 0.65 : 1;
 
     billetes.push({
       x: origenX,
@@ -89,8 +118,11 @@ function lanzarConfetti() {
       gravity: 0.3,
       rot: Math.random() * 360,
       rotSpeed: Math.random() * 18 - 9,
-      w: 42,
-      h: 22
+      w: 42 * escala,
+      h: 22 * escala
+
+      // w: 42,
+      // h: 22
     });
   }
 
@@ -121,5 +153,6 @@ function lanzarConfetti() {
 
   animar();
 }
+
 
 
