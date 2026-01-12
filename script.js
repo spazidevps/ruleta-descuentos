@@ -36,13 +36,38 @@ const resultado = document.getElementById("resultado");
 //   labels.appendChild(label);
 // });
 
+// function crearLabels() {
+//   labels.innerHTML = "";
+
+//   const radio = ruleta.offsetWidth / 2;
+//   // const distanciaTexto = radio * 0.72;
+//   const distanciaTexto = radio * 0.20;
+
+
+//   premios.forEach((texto, i) => {
+//     const label = document.createElement("div");
+//     label.className = "label";
+
+//     const angulo = i * 45 + 22.5;
+
+//     label.style.transform = `
+//       rotate(${angulo}deg)
+//       translate(${distanciaTexto}px, -8px)
+//     `;
+
+//     label.innerText = texto;
+//     labels.appendChild(label);
+//   });
+// }
+
+// crearLabels();
+// window.addEventListener("resize", crearLabels);
+
 function crearLabels() {
   labels.innerHTML = "";
 
   const radio = ruleta.offsetWidth / 2;
-  // const distanciaTexto = radio * 0.72;
-  const distanciaTexto = radio * 0.20;
-
+  const distanciaTexto = radio * 0.17;
 
   premios.forEach((texto, i) => {
     const label = document.createElement("div");
@@ -52,7 +77,7 @@ function crearLabels() {
 
     label.style.transform = `
       rotate(${angulo}deg)
-      translate(${distanciaTexto}px, -8px)
+      translate(${distanciaTexto}px, -50%)
     `;
 
     label.innerText = texto;
@@ -62,6 +87,7 @@ function crearLabels() {
 
 crearLabels();
 window.addEventListener("resize", crearLabels);
+
 
 
 
@@ -105,28 +131,51 @@ function lanzarConfetti() {
   let contador = 0;
   const total = 90;
 
-  function disparar(lado) {
-    const origenX = lado === "izq" ? -30 : canvas.width + 30;
-    const anguloBase = lado === "izq" ? 0 : Math.PI;
-    const angulo = anguloBase + (Math.random() * 0.8 - 0.4);
-    const velocidad = Math.random() * 9 + 7;
-    const escala = window.innerWidth < 600 ? 0.65 : 1;
+  // function disparar(lado) {
+  //   const origenX = lado === "izq" ? -30 : canvas.width + 30;
+  //   const anguloBase = lado === "izq" ? 0 : Math.PI;
+  //   const angulo = anguloBase + (Math.random() * 0.8 - 0.4);
+  //   const velocidad = Math.random() * 9 + 7;
+  //   const escala = window.innerWidth < 600 ? 0.65 : 1;
 
-    billetes.push({
-      x: origenX,
-      y: centroY + Math.random() * 120 - 60,
-      vx: Math.cos(angulo) * velocidad,
-      vy: Math.sin(angulo) * velocidad - 10,
-      gravity: 0.3,
-      rot: Math.random() * 360,
-      rotSpeed: Math.random() * 18 - 9,
-      w: 42 * escala,
-      h: 22 * escala
+  //   billetes.push({
+  //     x: origenX,
+  //     y: centroY + Math.random() * 120 - 60,
+  //     vx: Math.cos(angulo) * velocidad,
+  //     vy: Math.sin(angulo) * velocidad - 10,
+  //     gravity: 0.3,
+  //     rot: Math.random() * 360,
+  //     rotSpeed: Math.random() * 18 - 9,
+  //     w: 42 * escala,
+  //     h: 22 * escala
 
-      // w: 42,
-      // h: 22
-    });
-  }
+  //     // w: 42,
+  //     // h: 22
+  //   });
+  // }
+
+function disparar(lado) {
+  const origenX = lado === "izq" ? -30 : canvas.width + 30;
+  const anguloBase = lado === "izq" ? 0 : Math.PI;
+  const angulo = anguloBase + (Math.random() * 0.8 - 0.4);
+  const velocidad = Math.random() * 9 + 7;
+
+  const escala = window.innerWidth < 600 ? 0.65 : 1;
+
+  billetes.push({
+    x: origenX,
+    y: centroY + Math.random() * 120 - 60,
+    vx: Math.cos(angulo) * velocidad,
+    vy: Math.sin(angulo) * velocidad - 10,
+    gravity: 0.3,
+    rot: Math.random() * 360,
+    rotSpeed: Math.random() * 18 - 9,
+    w: 42 * escala,
+    h: 22 * escala
+  });
+}
+
+
 
   function animar() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
